@@ -1,5 +1,8 @@
-import ProjectDetailPage from "../../../components/project/ProjectDetailPage";
+// src/app/project/[projectId]/page.tsx
 
-export default function Page({ params }: { params: { projectId: string } }) {
-  return <ProjectDetailPage projectId={params.projectId} />;
+import ProjectClientPage from "./ProjectClientPage";
+
+export default function Page() {
+  // Tidak ada props, tidak ada async, hanya merender Client Component
+  return <ProjectClientPage />;
 }

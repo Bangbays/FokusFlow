@@ -1,9 +1,10 @@
+// src/components/ui/Button.tsx
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
-import Icon from "../AppIcon"; // Pastikan path ini benar
+import Icon, { type IconName } from "../AppIcon"; // 1. Impor IconName
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -40,7 +41,8 @@ export interface ButtonProps
   asChild?: boolean;
   loading?: boolean;
   fullWidth?: boolean;
-  iconName?: string;
+  // 2. Gunakan tipe IconName
+  iconName?: IconName;
   iconPosition?: "left" | "right";
   iconSize?: number;
 }
@@ -108,7 +110,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             className={children ? "mr-2" : ""}
           />
         )}
-        {children}
+        {asChild ? children : <span>{children}</span>}
         {iconName && iconPosition === "right" && (
           <Icon
             name={iconName}

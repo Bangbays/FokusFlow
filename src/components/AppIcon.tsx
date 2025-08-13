@@ -3,13 +3,12 @@
 import React from "react";
 import * as LucideIcons from "lucide-react";
 
-// Ambil tipe dasar untuk komponen ikon Lucide
 type LucideIcon = React.ForwardRefExoticComponent<
   Omit<LucideIcons.LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
 >;
 
-// Ambil semua nama ikon yang valid
-type IconName = keyof typeof LucideIcons;
+// Pastikan tipe ini di-ekspor
+export type IconName = keyof typeof LucideIcons;
 
 interface IconProps extends LucideIcons.LucideProps {
   name: IconName;

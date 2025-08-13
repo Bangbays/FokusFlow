@@ -1,20 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
-import Modal from "@/components/ui/Modal";
-import Input from "@/components/ui/Input";
-import Select from "@/components/ui/Select";
-import Button from "@/components/ui/Button";
-import { type Task } from "./ProjectDetailPage";
+import React, { useState, useEffect } from "react";
+import Modal from "../ui/Modal";
+import Input from "../ui/Input";
+import Select from "../ui/Select";
+import Button from "../ui/Button";
+// 1. Impor tipe Task dari lokasi yang benar
+import { type Task } from "@/lib/mock-data";
 
+// 2. Definisikan tipe props dengan benar
 interface AddTaskModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAddTask: (
-    taskData: Omit<Task, "id" | "createdAt" | "updatedAt" | "assignee"> & {
-      assignee?: string;
-    }
-  ) => void;
+  onAddTask: (taskData: Omit<Task, "id" | "createdAt" | "updatedAt">) => void;
   teamMembers: { name: string }[];
 }
 
@@ -28,14 +26,22 @@ export default function AddTaskModal({
     name: "",
     description: "",
     dueDate: "",
-    priority: "medium",
+    priority: "medium" as Task["priority"],
     assignee: "",
-    status: "todo",
+    status: "todo" as Task["status"],
   };
 
   const [formData, setFormData] = useState(initialFormState);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Reset form setiap kali modal dibuka
+  useEffect(() => {
+    if (isOpen) {
+      setFormData(initialFormState);
+      setErrors({});
+    }
+  }, [isOpen]);
 
   const priorityOptions = [
     { value: "low", label: "Low Priority" },
@@ -60,31 +66,18 @@ export default function AddTaskModal({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleSelectChange = (field: string, value: string) => {
+  const handleSelectChange = (field: keyof typeof formData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const validateForm = () => {
-    // Validasi sederhana
-    if (!formData.name.trim()) {
-      setErrors({ name: "Task name is required" });
-      return false;
-    }
-    return true;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!validateForm()) return;
-
     setIsSubmitting(true);
     // Simulate API call
     setTimeout(() => {
       onAddTask(formData);
-      setFormData(initialFormState); // Reset form
       setIsSubmitting(false);
     }, 500);
   };
@@ -94,19 +87,14 @@ export default function AddTaskModal({
       <form onSubmit={handleSubmit} className="space-y-6">
         <Input
           label="Task Name"
-          type="text"
           name="name"
-          placeholder="Enter task name"
           value={formData.name}
           onChange={handleInputChange}
-          error={errors.name}
           required
         />
         <Input
           label="Description"
-          type="text"
           name="description"
-          placeholder="Describe what needs to be done"
           value={formData.description}
           onChange={handleInputChange}
         />

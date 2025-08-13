@@ -1,3 +1,15 @@
+export type Task = {
+  id: number;
+  name: string;
+  description: string;
+  dueDate: string;
+  priority: "high" | "medium" | "low";
+  status: "completed" | "in-progress" | "todo";
+  assignee: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export const mockProject = {
   id: 1,
   name: "E-commerce Website Redesign",
@@ -32,7 +44,8 @@ export const mockProject = {
   ],
 };
 
-export const mockTasks = [
+// 2. Pastikan array ini sesuai dengan tipe Task yang baru
+export const mockTasks: Task[] = [
   {
     id: 1,
     name: "Create wireframes for homepage",

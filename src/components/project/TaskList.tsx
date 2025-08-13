@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import Icon from "../AppIcon";
+import Icon from "@/components/AppIcon";
 import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
-import { type Task } from "./ProjectDetailPage"; // Impor tipe Task
+import { type Task } from "@/lib/mock-data";
 
 interface TaskListProps {
   tasks: Task[];

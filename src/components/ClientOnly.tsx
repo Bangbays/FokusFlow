@@ -1,0 +1,22 @@
+// src/components/ClientOnly.tsx
+"use client";
+
+import React, { useState, useEffect } from "react";
+
+interface ClientOnlyProps {
+  children: React.ReactNode;
+}
+
+export default function ClientOnly({ children }: ClientOnlyProps) {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null; // Atau tampilkan skeleton/loader
+  }
+
+  return <>{children}</>;
+}

@@ -1,10 +1,9 @@
+// src/components/project/ProjectHeader.tsx
+"use client"; // WAJIB ADA karena menerima prop fungsi (onAddTask)
+
 import React from "react";
 import Button from "@/components/ui/Button";
-
-interface Task {
-  id: number;
-  status: string;
-}
+import { type Task } from "@/lib/mock-data";
 
 interface Project {
   name?: string;
@@ -25,19 +24,6 @@ export default function ProjectHeader({
   project,
   onAddTask,
 }: ProjectHeaderProps) {
-  const getStatusColor = (status?: string) => {
-    switch (status?.toLowerCase()) {
-      case "completed":
-        return "text-success bg-success/10";
-      case "in progress":
-        return "text-warning bg-warning/10";
-      case "on hold":
-        return "text-error bg-error/10";
-      default:
-        return "text-muted-foreground bg-muted";
-    }
-  };
-
   const getProgressPercentage = () => {
     if (!project?.tasks || project.tasks.length === 0) return 0;
     const completedTasks = project.tasks.filter(
@@ -54,48 +40,23 @@ export default function ProjectHeader({
             <h1 className="text-2xl font-semibold text-foreground">
               {project.name}
             </h1>
-            <span
-              className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(
-                project.status
-              )}`}
-            >
+            <span className={`px-3 py-1 rounded-full text-sm font-medium`}>
               {project.status}
             </span>
           </div>
           <p className="text-muted-foreground mb-4">{project.description}</p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div>
-              <p className="text-sm text-muted-foreground">Client</p>
-              <p className="font-medium text-foreground">{project.client}</p>
+          <div className="flex items-center gap-2">
+            <div className="flex-1 bg-muted rounded-full h-2">
+              <div
+                className="bg-primary h-2 rounded-full"
+                style={{ width: `${getProgressPercentage()}%` }}
+              />
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Due Date</p>
-              <p className="font-medium text-foreground">{project.dueDate}</p>
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Progress</p>
-              <div className="flex items-center gap-2">
-                <div className="flex-1 bg-muted rounded-full h-2">
-                  <div
-                    className="bg-primary h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${getProgressPercentage()}%` }}
-                  />
-                </div>
-                <span className="text-sm font-medium text-foreground">
-                  {getProgressPercentage()}%
-                </span>
-              </div>
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Budget</p>
-              <p className="font-medium text-foreground">
-                ${project.budget?.toLocaleString()}
-              </p>
-            </div>
+            <span className="text-sm font-medium text-foreground">
+              {getProgressPercentage()}%
+            </span>
           </div>
         </div>
-
         <div className="flex gap-3">
           <Button variant="outline" iconName="Edit" iconPosition="left">
             Edit Project
@@ -113,3 +74,4 @@ export default function ProjectHeader({
     </div>
   );
 }
+  
