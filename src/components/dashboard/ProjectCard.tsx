@@ -1,11 +1,8 @@
-// src/components/dashboard/ProjectCard.tsx
-
 import React from "react";
 import Link from "next/link";
 import Icon from "@/components/AppIcon";
 import StatusBadge from "./StatusBadge";
 
-// Definisikan tipe untuk project agar konsisten
 interface Project {
   id: number;
   name: string;
@@ -37,7 +34,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   };
 
   return (
-    // --- PERUBAHAN DI SINI ---
     <Link href={`/project/${project.id}`} className="block">
       <div className="bg-card rounded-lg border border-border p-6 shadow-elevation-1 hover:shadow-elevation-2 transition-smooth cursor-pointer">
         <div className="flex items-start justify-between mb-4">
