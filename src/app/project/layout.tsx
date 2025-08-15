@@ -9,7 +9,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Kita akan perbaiki komponen Header dan Sidebar di bawah */}
       <Header />
       <Sidebar
         isCollapsed={isSidebarCollapsed}
