@@ -5,10 +5,8 @@ import Modal from "../ui/Modal";
 import Input from "../ui/Input";
 import Select from "../ui/Select";
 import Button from "../ui/Button";
-// 1. Impor tipe Task dari lokasi yang benar
 import { type Task } from "@/lib/mock-data";
 
-// 2. Definisikan tipe props dengan benar
 interface AddTaskModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -35,7 +33,6 @@ export default function AddTaskModal({
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Reset form setiap kali modal dibuka
   useEffect(() => {
     if (isOpen) {
       setFormData(initialFormState);
@@ -75,7 +72,6 @@ export default function AddTaskModal({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
     setTimeout(() => {
       onAddTask(formData);
       setIsSubmitting(false);
