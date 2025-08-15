@@ -1,11 +1,8 @@
-// src/components/dashboard/ProjectTable.tsx
-
 import React from "react";
 import Link from "next/link";
 import Icon from "@/components/AppIcon";
 import StatusBadge from "./StatusBadge";
 
-// Definisikan tipe untuk project
 interface Project {
   id: number;
   name: string;
@@ -72,7 +69,6 @@ export default function ProjectTable({ projects }: ProjectTableProps) {
                 className={`border-t border-border hover:bg-muted/50 transition-smooth`}
               >
                 <td className="py-4 px-6">
-                  {/* --- PERUBAHAN DI SINI (1) --- */}
                   <Link
                     href={`/project/${project.id}`}
                     className="font-medium text-foreground hover:text-primary transition-smooth"
@@ -109,7 +105,6 @@ export default function ProjectTable({ projects }: ProjectTableProps) {
                 </td>
                 <td className="py-4 px-6">
                   <div className="flex items-center justify-end space-x-2">
-                    {/* --- PERUBAHAN DI SINI (2) --- */}
                     <Link
                       href={`/project/${project.id}`}
                       className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-smooth"
