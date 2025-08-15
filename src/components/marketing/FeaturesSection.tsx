@@ -1,5 +1,3 @@
-// src/components/marketing/FeaturesSection.tsx
-
 import React from "react";
 import Icon from "@/components/AppIcon";
 import Link from "next/link";
