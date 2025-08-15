@@ -87,7 +87,6 @@ export default function ProjectSidebar({
 
   return (
     <div className="space-y-6">
-      {/* Project Details */}
       <div className="bg-card rounded-lg border border-border p-6">
         <h3 className="text-lg font-semibold text-foreground mb-4">
           Project Details
@@ -142,7 +141,6 @@ export default function ProjectSidebar({
         </div>
       </div>
 
-      {/* Team Members */}
       <div className="bg-card rounded-lg border border-border p-6">
         <h3 className="text-lg font-semibold text-foreground mb-4">
           Team Members
@@ -171,7 +169,6 @@ export default function ProjectSidebar({
         </div>
       </div>
 
-      {/* Recent Activity */}
       <div className="bg-card rounded-lg border border-border p-6">
         <h3 className="text-lg font-semibold text-foreground mb-4">
           Recent Activity
