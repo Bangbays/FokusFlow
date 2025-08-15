@@ -1,11 +1,9 @@
-// src/components/ui/Modal.tsx
 "use client";
 
 import React, { useEffect, type ReactNode } from "react";
 import Icon from "../AppIcon";
 import Button from "./Button";
 
-// Definisikan tipe untuk props
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
