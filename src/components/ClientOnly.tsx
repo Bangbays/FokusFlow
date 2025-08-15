@@ -1,4 +1,3 @@
-// src/components/ClientOnly.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -15,7 +14,7 @@ export default function ClientOnly({ children }: ClientOnlyProps) {
   }, []);
 
   if (!hasMounted) {
-    return null; // Atau tampilkan skeleton/loader
+    return null;
   }
 
   return <>{children}</>;
