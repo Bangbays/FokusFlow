@@ -44,7 +44,6 @@ export const mockProject = {
   ],
 };
 
-// 2. Pastikan array ini sesuai dengan tipe Task yang baru
 export const mockTasks: Task[] = [
   {
     id: 1,
