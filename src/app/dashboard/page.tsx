@@ -15,7 +15,6 @@ import UpcomingDeadlines from "@/components/dashboard/UpcomingDeadlines";
 import Icon from "@/components/AppIcon";
 import Button from "@/components/ui/Button";
 
-// Tipe data untuk konsistensi
 type Project = {
   id: number;
   name: string;
@@ -28,7 +27,7 @@ type Project = {
   priority: "high" | "medium" | "low";
 };
 
-// Mock project data (Sama seperti di file asli)
+// Data Project Dummy
 const projects: Project[] = [
   {
     id: 1,
@@ -228,7 +227,6 @@ export default function DashboardPage() {
                   </div>
                 ) : null}
 
-                {/* Mobile Table Fallback */}
                 <div className="md:hidden">
                   {currentView === "table" && (
                     <div className="grid grid-cols-1 gap-6">
@@ -248,7 +246,6 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Modal (opsional, disederhanakan) */}
       <Modal
         isOpen={isNewProjectModalOpen}
         onClose={() => setIsNewProjectModalOpen(false)}
