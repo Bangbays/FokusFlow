@@ -7,7 +7,6 @@ type LucideIcon = React.ForwardRefExoticComponent<
   Omit<LucideIcons.LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
 >;
 
-// Pastikan tipe ini di-ekspor
 export type IconName = keyof typeof LucideIcons;
 
 interface IconProps extends LucideIcons.LucideProps {
@@ -15,11 +14,9 @@ interface IconProps extends LucideIcons.LucideProps {
 }
 
 export default function Icon({ name, ...props }: IconProps) {
-  // Beri tahu TypeScript bahwa IconComponent adalah tipe LucideIcon
   const IconComponent = LucideIcons[name] as LucideIcon;
 
   if (!IconComponent) {
-    // Fallback jika nama ikon tidak ditemukan
     return <LucideIcons.HelpCircle {...props} />;
   }
 
