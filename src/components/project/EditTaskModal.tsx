@@ -24,7 +24,6 @@ export default function EditTaskModal({
 }: EditTaskModalProps) {
   const [formData, setFormData] = useState<Task | null>(null);
 
-  // Efek ini akan mengisi form dengan data task yang dipilih saat modal dibuka
   useEffect(() => {
     if (task) {
       setFormData(task);
