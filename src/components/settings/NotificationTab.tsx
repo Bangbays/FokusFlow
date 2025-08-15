@@ -1,4 +1,3 @@
-// src/components/settings/NotificationsTab.tsx
 "use client";
 
 import React, { useState } from "react";
