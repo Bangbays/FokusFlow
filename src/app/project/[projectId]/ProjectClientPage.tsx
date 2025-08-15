@@ -1,8 +1,7 @@
-// src/app/project/[projectId]/ProjectClientPage.tsx
-"use client"; // Menandakan ini adalah Client Component
+"use client";
 
 import React, { useState, useEffect } from "react";
-import { useParams } from "next/navigation"; // Hook untuk mendapatkan params di Client Component
+import { useParams } from "next/navigation";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ProjectHeader from "@/components/project/ProjectHeader";
 import TaskList from "@/components/project/TaskList";
@@ -17,18 +16,14 @@ import {
 } from "@/lib/mock-data";
 
 export default function ProjectClientPage() {
-  // Gunakan useParams untuk mendapatkan ID proyek di sisi klien
   const params = useParams();
   const projectId = params?.projectId as string;
-
-  // Semua state dan logika yang sudah ada dipindahkan ke sini
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
   const [isEditTaskModalOpen, setIsEditTaskModalOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
-    // Di aplikasi nyata, Anda bisa fetch data di sini menggunakan projectId
     setTasks(mockTasks);
   }, [projectId]);
 
