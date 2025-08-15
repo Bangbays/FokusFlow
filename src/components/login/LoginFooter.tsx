@@ -21,7 +21,7 @@ export default function LoginFooter() {
       </div>
 
       <Link
-        href="/marketing-landing-page"
+        href="/"
         className="inline-flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-smooth"
       >
         <Icon name="ArrowLeft" size={16} />
