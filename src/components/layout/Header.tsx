@@ -2,13 +2,11 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-// 1. Impor useRouter bersama dengan usePathname
 import { usePathname, useRouter } from "next/navigation";
 import Icon from "../AppIcon";
 import Button from "../ui/Button";
 
 export default function Header() {
-  // 2. Dapatkan instance router
   const router = useRouter();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -27,9 +25,7 @@ export default function Header() {
     return pathname === path;
   };
 
-  // 3. Buat fungsi handleLogout
   const handleLogout = () => {
-    // Arahkan pengguna kembali ke halaman login
     router.push("/");
   };
 
@@ -94,7 +90,6 @@ export default function Header() {
                   <span>Profile</span>
                 </Link>
                 <hr className="my-2 border-border" />
-                {/* 4. Tambahkan onClick ke tombol */}
                 <button
                   onClick={handleLogout}
                   className="flex items-center space-x-2 px-4 py-2 text-sm text-popover-foreground hover:bg-muted transition-smooth w-full text-left"
