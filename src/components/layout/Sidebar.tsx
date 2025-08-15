@@ -1,4 +1,3 @@
-// src/components/layout/Sidebar.tsx
 "use client";
 
 import React from "react";
@@ -25,7 +24,6 @@ export default function Sidebar({
       icon: "LayoutDashboard",
       tooltip: "Project overview",
     },
-    // --- PERUBAHAN DI SINI ---
     {
       path: "/project/1",
       label: "Projects",
