@@ -4,14 +4,12 @@ import React, { useState, useId } from "react";
 import { ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Definisikan tipe untuk setiap opsi dalam array
 type SelectOption = {
   value: string;
   label: string;
   disabled?: boolean;
 };
 
-// Definisikan tipe untuk props komponen Select
 export interface SelectProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> {
   options?: SelectOption[];
