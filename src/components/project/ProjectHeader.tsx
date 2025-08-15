@@ -1,5 +1,4 @@
-// src/components/project/ProjectHeader.tsx
-"use client"; // WAJIB ADA karena menerima prop fungsi (onAddTask)
+"use client";
 
 import React from "react";
 import Button from "@/components/ui/Button";
