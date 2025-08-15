@@ -29,9 +29,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     },
     ref
   ) => {
-    // 2. Gunakan hook useId untuk membuat ID yang stabil
     const generatedId = useId();
-    const checkboxId = id || generatedId; // 3. Gunakan ID yang dihasilkan
+    const checkboxId = id || generatedId;
 
     const sizeClasses = {
       sm: "h-4 w-4",
