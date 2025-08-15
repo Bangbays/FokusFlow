@@ -17,7 +17,7 @@ export default function LoginForm() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
 
-  // Mock credentials for demonstration
+  // Dummy account for demonstration
   const mockCredentials = {
     email: "john@freelancer.com",
     password: "password123",
@@ -132,7 +132,7 @@ export default function LoginForm() {
             type="button"
             onClick={handleForgotPassword}
             className="text-sm text-primary hover:text-primary/80 transition-smooth"
-            suppressHydrationWarning // <-- TAMBAHKAN INI
+            suppressHydrationWarning
           >
             Forgot password?
           </button>
