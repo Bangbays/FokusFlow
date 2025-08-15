@@ -1,4 +1,3 @@
-// src/components/marketing/CTASection.tsx
 "use client";
 
 import React, { useState } from "react";
