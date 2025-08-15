@@ -1,5 +1,4 @@
-// src/components/ui/Breadcrumb.tsx
-"use client"; // WAJIB ADA karena menggunakan usePathname
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -14,13 +13,10 @@ interface BreadcrumbItem {
 
 export default function Breadcrumb() {
   const pathname = usePathname();
-
-  // Jangan tampilkan apa-apa jika di root dashboard
   if (pathname === "/dashboard") {
     return null;
   }
 
-  // Bangun breadcrumbs berdasarkan path saat ini
   const breadcrumbItems: BreadcrumbItem[] = [
     { label: "Dashboard", href: "/dashboard", icon: "LayoutDashboard" },
   ];
