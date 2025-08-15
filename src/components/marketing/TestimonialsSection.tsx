@@ -1,4 +1,3 @@
-// src/components/marketing/TestimonialsSection.tsx
 "use client";
 
 import React from "react";
