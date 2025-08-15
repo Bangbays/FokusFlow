@@ -10,7 +10,6 @@ export default function HeroSection() {
     <section className="relative bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Bagian Kiri (Teks) */}
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Icon name="Zap" size={16} />
@@ -56,7 +55,6 @@ export default function HeroSection() {
               </Button>
             </div>
 
-            {/* Catatan Kaki (Trust Indicators) */}
             <div className="flex items-center justify-center lg:justify-start space-x-8 mt-12 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <Icon name="Shield" size={16} className="text-success" />
@@ -73,7 +71,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Bagian Kanan (Gambar Pratinjau Dasbor) */}
           <div className="relative">
             <div className="bg-card rounded-2xl shadow-elevation-3 p-6 border border-border">
               <div className="flex items-center justify-between mb-4">
@@ -88,7 +85,6 @@ export default function HeroSection() {
               </div>
 
               <div className="space-y-4">
-                {/* Mock Project Cards */}
                 <div className="bg-muted/50 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="font-medium text-foreground">
@@ -136,7 +132,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Ikon Mengambang (Floating Elements) */}
             <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-full p-3 shadow-elevation-2">
               <Icon name="TrendingUp" size={20} />
             </div>
