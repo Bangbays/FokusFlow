@@ -27,7 +27,6 @@ type Project = {
   priority: "high" | "medium" | "low";
 };
 
-// Data Project Dummy
 const projects: Project[] = [
   {
     id: 1,

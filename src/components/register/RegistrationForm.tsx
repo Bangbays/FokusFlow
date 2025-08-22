@@ -45,7 +45,6 @@ export default function RegistrationForm() {
 
     setIsLoading(true);
     setTimeout(() => {
-      // Mock successful registration
       router.push("/dashboard");
     }, 1500);
   };

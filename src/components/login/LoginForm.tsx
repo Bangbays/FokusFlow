@@ -17,7 +17,6 @@ export default function LoginForm() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
 
-  // Dummy account for demonstration
   const mockCredentials = {
     email: "john@freelancer.com",
     password: "password123",
